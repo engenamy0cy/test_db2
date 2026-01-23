@@ -1,0 +1,39 @@
+1- создаем виртуальное окружене
+python -m venv venv
+2 - активируем 
+venv/scripts/acrivate
+3-pip install django djangorestframework pytest pytest-django
+4- создаем проект 
+django-admin startproject config
+5-создаем приложение cd config
+python manage.py startapp название приложение
+6-подлкючаем прилоеэние в setting.py в списке INSTALL_APPS
+7- создаем orm системув models.py вашего приложения
+пример class Product(models.MODEL):
+    и поля класса
+8- сделать миграции python manage.py makemigrations
+9-запустить миграции  python manage.py migrate
+10-создаем рядом с корневым файлов manage.py
+-pytest.ini
+пример
+[pytest]
+и указываем путь и что нам требуется запускать 
+DJANGO_SETTINGS_MODELE = НАЗВАНИЕ ПРОЕКТА .setting
+python_files = test_*.py 
+addopts = -v
+11 - создаем рядом с корневым файлов manage.py
+-conftest.py 
+в нем создаем 
+@pytest.fixture 
+функция где создаем обьект модели (с любыми тестовыми входными данными для полей)
+12 - в нашем приложение создаем папку tests/
+в ней создаем test-models.py 
+ив нем прописываем автотесты которые могут происходить с fixture обьекта
+-пример(проверять строку)
+-проверять логику
+-проверить создание 
+-проверять самосоздание фикстуры 
+-проверить фильтрацию
+-проверять нужный тип данных который прилетает 
+-проверять запросы 
+-проверять методы 
